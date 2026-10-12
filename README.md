@@ -9,10 +9,10 @@ Built up from troubleshooting sessions from March 2026 onward.
 |---|---|
 | Host hardware | HP G8 laptop (Intel), Proxmox installed bare metal |
 | Hypervisor | Proxmox VE 9 (NIC pinning in use, so interfaces may show as `nic0`) |
-| Management IP | `192.168.86.20/24` on `vmbr0`, gateway `192.168.86.1` |
-| Web UI | `https://192.168.86.20:8006` (login `root`, realm *Linux PAM*) |
+| Management IP | `192.168.86.161/24` on `vmbr0`, gateway `192.168.86.1` |
+| Web UI | `https://192.168.86.161:8006` (login `root`, realm *Linux PAM*) |
 | Wired uplink | USB Ethernet adapter `enx98fc84e0457e` → bridged on `vmbr0` |
-| Wi-Fi | Intel CNVi (`iwlwifi`), host connectivity only, NAT bridge `vmbr1` for VMs |
+| Wi-Fi | Intel CNVi (`iwlwifi`), host connectivity only |
 | Hostname plan | `pve01.home.arpa` (recommended; confirm what's actually set) |
 | Client machine | Windows PC (`pc1`) |
 | Other hardware | Ryzen 5 3600 / MSI B550 Tomahawk (AM4) box — possible future node |
