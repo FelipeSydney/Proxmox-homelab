@@ -7,16 +7,21 @@ Built up from troubleshooting sessions from March 2026 onward.
 
 | Item | Value |
 |---|---|
+| Host hardware | HP G8 laptop (Intel), Proxmox installed bare metal |
 | Hypervisor | Proxmox VE 9 (NIC pinning in use, so interfaces may show as `nic0`) |
 | Management IP | `192.168.86.20/24` on `vmbr0`, gateway `192.168.86.1` |
 | Web UI | `https://192.168.86.20:8006` (login `root`, realm *Linux PAM*) |
 | Wired uplink | USB Ethernet adapter `enx98fc84e0457e` → bridged on `vmbr0` |
 | Wi-Fi | Intel CNVi (`iwlwifi`), host connectivity only, NAT bridge `vmbr1` for VMs |
 | Hostname plan | `pve01.home.arpa` (recommended; confirm what's actually set) |
-| Client machines | Windows PC (`pc1`), HP ZBook Firefly 14 G8 |
-| Planned server hardware | Ryzen 5 3600, MSI B550 Tomahawk (AM4) |
+| Client machine | Windows PC (`pc1`) |
+| Other hardware | Ryzen 5 3600 / MSI B550 Tomahawk (AM4) box — possible future node |
 
-> **Open question:** the Wi-Fi interface (`wlp0s20f3`, Intel CNVi) and the USB Ethernet adapter suggest the current Proxmox host is a laptop/mini PC rather than the Ryzen box, since an Intel CNVi card can't sit on a B550 board. Update the table once confirmed.
+### Laptop-as-host notes
+- No built-in RJ45, hence the USB Ethernet adapter. Use a fixed USB port so the interface name stays stable.
+- Set the lid to not suspend: `HandleLidSwitch=ignore` in `/etc/systemd/logind.conf`, then `systemctl restart systemd-logind`.
+- Keep it on AC; consider capping battery charge in BIOS if the option exists, as it'll sit plugged in 24/7.
+- Intel CPU: nested virtualisation uses `kvm_intel`, not `kvm_amd`.
 
 ## Status
 

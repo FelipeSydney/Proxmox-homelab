@@ -2,7 +2,7 @@
 
 1. Download the Proxmox VE ISO from proxmox.com/downloads (current stable).
 2. Write it to USB (Rufus on Windows, Etcher, or `dd`).
-3. Enable **AMD-V / SVM** (or Intel VT-x) and IOMMU in BIOS; boot from USB.
+3. Enable **Intel VT-x and VT-d** in the HP BIOS (F10), disable Secure Boot if the installer won't boot; boot from USB.
 4. Installer → *Install Proxmox VE (Graphical)* → pick target disk (it gets wiped).
 5. Country / timezone (`Australia/Sydney`) / keyboard.
 6. Set the `root` password and notification email.

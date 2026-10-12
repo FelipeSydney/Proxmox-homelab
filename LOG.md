@@ -4,6 +4,7 @@ Newest first. Dates are when the work was discussed/done.
 
 ## 2026-10-12
 - Created this repo to track the build.
+- Confirmed the Proxmox host is an HP G8 laptop running bare metal (not the Ryzen box).
 
 ## 2026-10-11
 - **Claude ↔ Proxmox MCP:** picked community MCP servers (gilby125/mcp-proxmox, ProxmoxMCP-Plus, @bldg-7/proxmox-mcp). Created plan for a dedicated API user + token with `PVEAuditor` (read-only). Merged an `mcpServers` block into `claude_desktop_config.json` on `pc1`. **Not working yet:** no Proxmox tools appear in Claude after restart.
