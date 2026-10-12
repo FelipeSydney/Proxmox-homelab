@@ -1,0 +1,8 @@
+# Secrets — never commit
+*.secret
+*.token
+.env
+wpa_supplicant.conf
+claude_desktop_config.json
+*.pem
+*.key

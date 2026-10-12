@@ -1,0 +1,18 @@
+# /etc/network/interfaces — wired bridge (current working layout)
+# If Proxmox VE 9 NIC pinning has renamed the adapter, replace
+# enx98fc84e0457e with nic0 (check with: ip -br link)
+
+auto lo
+iface lo inet loopback
+
+iface enx98fc84e0457e inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+    address 192.168.86.20/24
+    gateway 192.168.86.1
+    bridge-ports enx98fc84e0457e
+    bridge-stp off
+    bridge-fd 0
+
+source /etc/network/interfaces.d/*

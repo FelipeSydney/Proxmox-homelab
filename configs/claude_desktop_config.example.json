@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "proxmox": {
+      "command": "npx",
+      "args": ["-y", "<proxmox-mcp-package>"],
+      "env": {
+        "PROXMOX_HOST": "192.168.86.20",
+        "PROXMOX_PORT": "8006",
+        "PROXMOX_USER": "claude@pve",
+        "PROXMOX_TOKEN_NAME": "mcp",
+        "PROXMOX_TOKEN_VALUE": "<token-secret-do-not-commit>",
+        "PROXMOX_VERIFY_SSL": "false"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# Wi-Fi host uplink + NAT bridge for VMs (fallback when no wired link)
+# Append to /etc/network/interfaces. Interface name: check `ip -br link`.
+# PSK lives in /etc/wpa_supplicant/wpa_supplicant.conf (chmod 600) — never commit it.
+
+auto wlp0s20f3
+iface wlp0s20f3 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+# Private subnet for VMs; host NATs it out of Wi-Fi
+auto vmbr1
+iface vmbr1 inet static
+    address 10.10.10.1/24
+    bridge-ports none
+    bridge-stp off
+    bridge-fd 0
+    post-up   echo 1 > /proc/sys/net/ipv4/ip_forward
+    post-up   iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o wlp0s20f3 -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s 10.10.10.0/24 -o wlp0s20f3 -j MASQUERADE
+
+# VMs on vmbr1: IP 10.10.10.x/24, gateway 10.10.10.1 (or run dnsmasq for DHCP)
