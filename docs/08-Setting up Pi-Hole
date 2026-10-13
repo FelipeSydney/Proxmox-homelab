@@ -3,3 +3,8 @@
 ## Documentation
 Setting up Pi-Hole in Proxmox as VM or CT. 
 ## Pi-Hole - Debian CT 
+Docker Installation 
+  - curl -sSL https://install.pi-hole.net | bash
+Unable to install due to the bash and curl commands not being found. 
+- apt-get install curl 
+- 
