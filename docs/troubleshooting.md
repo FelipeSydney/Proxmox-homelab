@@ -14,6 +14,7 @@
 | Wi-Fi interface down | RF-kill / missing `iwlwifi` firmware | `rfkill unblock wifi`, install `firmware-iwlwifi` |
 | VMs on Wi-Fi bridge get no traffic | AP drops non-authenticated MACs | NAT bridge `vmbr1` |
 | No Proxmox tools in Claude | MCP server not loading | See [05-claude-mcp.md](05-claude-mcp.md) — **open** |
+| No Connectivity | 
 
 ## Hardware (pre-Proxmox, Ryzen box)
 | Symptom | Cause | Fix |
