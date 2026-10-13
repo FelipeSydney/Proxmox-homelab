@@ -7,4 +7,6 @@ Docker Installation
   - curl -sSL https://install.pi-hole.net | bash
 Unable to install due to the bash and curl commands not being found. 
 - apt-get install curl 
-- 
+Once installed, complete the following:
+- Set static IPv4 and IPv6 addresses for Pi-Hole CT
+- Configure router to use Pi-hole as DNS
