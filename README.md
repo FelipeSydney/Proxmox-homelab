@@ -44,6 +44,7 @@ docs/
   04-wifi.md              Wi-Fi on the host, NAT bridge, offline package install
   05-claude-mcp.md        Connecting Claude via a Proxmox MCP server
   06-roadmap.md           Planned VMs/LXCs, storage, GNS3, remote access
+  11-Windows Sharedrive.md  Share Windows D: drive and mount it on Proxmox (SMB/CIFS)
   troubleshooting.md      Problems hit so far and how they were fixed
 configs/                  Sanitised example configs (no secrets)
 scripts/                  Helper scripts to run on the Proxmox host
