@@ -12,6 +12,8 @@
 | Monitoring | LXC | Prometheus + Grafana |
 | Media | Jellyfin LXC | Bind-mounted storage; the laptop's Intel iGPU can do Quick Sync transcoding via `/dev/dri` passthrough to the LXC |
 | Claude ops box | LXC | Claude Code for Ansible/Terraform/cloud-init — optional |
+| Authentik | SSO | SSO Authentication service for home network |
+| Remote Access | VPN | VPN service for remote access |
 
 ## Storage
 Two options (pick one):
