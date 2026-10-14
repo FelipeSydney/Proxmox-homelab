@@ -15,7 +15,7 @@
 | VMs on Wi-Fi bridge get no traffic | AP drops non-authenticated MACs | NAT bridge `vmbr1` |
 | No Proxmox tools in Claude | MCP server not loading | See [05-claude-mcp.md](05-claude-mcp.md) — **open** |
 | No Connectivity | Network settings not configured| Run the following commands - IP A, IP link set eth0 up, ifreload - a |
-
+| Laptop turning off when lid closed | Incorrect settings | Set HandleLidSwitch=ignore in /etc/systemd/logind.conf on the Proxmox host so closing the lid doesn’t suspend everything.|
 ## Hardware (pre-Proxmox, Ryzen box)
 | Symptom | Cause | Fix |
 |---|---|---|
