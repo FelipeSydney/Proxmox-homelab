@@ -94,5 +94,43 @@ Once logged in to the dashboard, agents are deployed from the web UI — it buil
 | Filebeat | `/etc/filebeat/filebeat.yml` |
 | Dashboard | `/etc/wazuh-dashboard/opensearch_dashboards.yml` |
 
+## Troubleshooting
+
+### Agent on the Proxmox host not connecting — set the server IP manually
+When deploying the agent on the Proxmox machine, the manager address wasn't set correctly, so the agent couldn't reach the Wazuh server. Fixed by editing the agent config by hand.
+
+Open the agent config on the Proxmox host:
+
+```bash
+nano /var/ossec/etc/ossec.conf
+```
+
+Find the `<client>` → `<server>` block and set `<address>` to the Wazuh server IP:
+
+```xml
+<client>
+  <server>
+    <address><WAZUH_SERVER_IP></address>
+    <port>1514</port>
+    <protocol>tcp</protocol>
+  </server>
+</client>
+```
+
+Save, then restart the agent:
+
+```bash
+systemctl restart wazuh-agent
+systemctl status wazuh-agent
+```
+
+Check the agent log if it still won't connect:
+
+```bash
+tail -f /var/ossec/logs/ossec.log
+```
+
+The agent should then show as **Active** in the dashboard.
+
 ## Notes
 - The OVA is a single-node deployment — no high availability or scaling out of the box.
